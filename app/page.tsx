@@ -1,12 +1,15 @@
-import Image from "next/image";
+import Avatar from "@/components/Avatar";
+import ProjectItem from "@/components/ProjectItem";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   ArrowTopRightIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
+import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -15,12 +18,9 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <div className="flex flex-row items-center space-x-3">
             <div className="relative h-12 w-12">
-              <Image
-                src="/aaron.jpeg"
-                alt="Aaron"
-                fill
-                className="rounded-full"
-              />
+              <Suspense fallback={<Avatar.Skeleton />}>
+                <Avatar />
+              </Suspense>
             </div>
 
             <div className="flex flex-col">
@@ -62,37 +62,10 @@ export default function Home() {
       <section className="flex flex-col">
         <div className="mb-4 px-4 font-medium text-primary">Projects</div>
 
-        <Link
-          href="#"
-          className="flex items-center justify-between p-4 hover:rounded-md hover:bg-accent"
-        >
-          <div className="flex flex-row items-center space-x-4">
-            <div className="h-[40px] w-[40px] rounded-md bg-white"></div>
-            <div className="flex flex-col">
-              <span className="text-primary/80">Moolah</span>
-              <span className="text-sm text-muted-foreground">
-                Track and manage your finances.
-              </span>
-            </div>
-          </div>
-          <ArrowTopRightIcon className="h-5 w-5 text-muted-foreground" />
-        </Link>
-
-        <Link
-          href="#"
-          className="flex items-center justify-between p-4 hover:rounded-md hover:bg-accent"
-        >
-          <div className="flex flex-row items-center space-x-4">
-            <div className="h-[40px] w-[40px] rounded-md bg-white"></div>
-            <div className="flex flex-col">
-              <span className="text-primary/80">Moolah</span>
-              <span className="text-sm text-muted-foreground">
-                Track and manage your finances.
-              </span>
-            </div>
-          </div>
-          <ArrowTopRightIcon className="h-5 w-5 text-muted-foreground" />
-        </Link>
+        <Suspense fallback={<ProjectItem.Skeleton />}>
+          <ProjectItem />
+          <ProjectItem />
+        </Suspense>
       </section>
     </main>
   );
