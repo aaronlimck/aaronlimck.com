@@ -2,13 +2,8 @@ import Avatar from "@/components/Avatar";
 import ProjectItem from "@/components/ProjectItem";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  ArrowTopRightIcon,
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-} from "@radix-ui/react-icons";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -20,6 +15,25 @@ export default function Home() {
         <meta property="og:image:type" content="<generated>" />
         <meta property="og:image:width" content="<generated>" />
         <meta property="og:image:height" content="<generated>" />
+
+        <meta name="twitter:image" content="<generated>" />
+        <meta name="twitter:image:type" content="<generated>" />
+        <meta name="twitter:image:width" content="<generated>" />
+        <meta name="twitter:image:height" content="<generated>" />
+
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
       </Head>
 
       <main className="mx-auto w-full max-w-2xl space-y-8 pt-10">
@@ -72,8 +86,18 @@ export default function Home() {
           <div className="mb-4 px-4 font-medium text-primary">Projects</div>
 
           <Suspense fallback={<ProjectItem.Skeleton />}>
-            <ProjectItem />
-            <ProjectItem />
+            <ProjectItem
+              title="Moolah"
+              description="Track and manage your finances with ease."
+              link="https://github.com/aaronlimck/moolah"
+              isArchived={false}
+            />
+            <ProjectItem
+              title="Appraisals Performance and Development System"
+              description="Steamline peer-to-peer appraisals using automation and generative AI."
+              link="https://github.com/aaronlimck/APADS"
+              isArchived={true}
+            />
           </Suspense>
         </section>
       </main>
