@@ -26,7 +26,7 @@ ProjectItem.Skeleton = () => {
   return (
     // Show 6 skeleton rows
     Array.from({ length: 6 }).map((_, index) => (
-      <div className="mt-6 space-y-2 px-4">
+      <div key={index} className="mt-6 space-y-2 px-4">
         <Skeleton className="h-4 w-[260px]" />
         <Skeleton className="h-4 w-[200px]" />
       </div>
