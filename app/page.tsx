@@ -53,9 +53,9 @@ export default function Home() {
         </div>
 
         <p>
-          Hi, I'm Aaron, based in Singapore. My interests lie in designing,
+          Hi, I&apos;m Aaron, based in Singapore. My interests lie in designing,
           managing, and developing products that solve real-world problems.
-          Let's bring those ideas to life!
+          Let&apos;s bring those ideas to life!
         </p>
       </section>
 
