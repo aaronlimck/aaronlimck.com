@@ -30,11 +30,14 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
-      <Script
-        defer
-        src="https://us.umami.is/script.js"
-        data-website-id="6cd7c9fb-1502-4845-954e-2a3040f81a40"
-      />
+
+      {process.env.NODE_ENV === "production" && (
+        <Script
+          defer
+          src="https://us.umami.is/script.js"
+          data-website-id="6cd7c9fb-1502-4845-954e-2a3040f81a40"
+        />
+      )}
     </html>
   );
 }
